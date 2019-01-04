@@ -12,6 +12,7 @@ with open('lora.log', 'r') as file:
         semtech_packet = SemtechPacket()
         semtech_packet.initialize_from_base64_string(parts[2].strip())
 
+        # Is this a "pull data" packet?
         if semtech_packet.identifier_as_int() == 0:
 
             if 'rxpk' in semtech_packet.payload:
